@@ -4,21 +4,23 @@ public class Kompliceret {
 
         MyTimer.start();
 
-        int n = 100000;
+        int n = 4; // Ikke højere end 5 da den tog 11 min.;
 
         long resultat = 0;
 
-        // Denne algoritme tager meget lang tid at gennemføre, og har en algoritmisk kompleksitet på O(N^2)
         for (int i = 0; i < n; i++) {
-            if (i%10000==0) System.out.print(".");
-            for (int j = 0; j < i; j++) {
-                for (int k = 0; k < j; k++) {
-                     resultat = i*j*k;
+            System.out.print(".");
+            for (long j = 0; j < i * n; j++) {
+                for (long k = 0; k < j * Math.pow(j, 2); k++) {
+                    for (long l = 0; l < Math.pow(k, 2); l++) {
+                        resultat = i*j*k*l;
+                    }
+
                 }
-
             }
-
         }
+
+        System.out.println();
         System.out.println("Resultat " + resultat);
         MyTimer.stop();
 
